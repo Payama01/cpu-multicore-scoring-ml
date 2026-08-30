@@ -40,7 +40,7 @@ Five columns were dropped before modeling, each for a distinct reason:
 
 | Column | Reason |
 |---|---|
-| `price` | Dataset spans 2007–2022; comparing raw prices across 15 years without inflation/technology adjustment introduces unjustifiable skew. ~49% NaN. |
+| `price` | Dataset spans 2007–2022; comparing raw prices across 15 years without inflation/technology adjustment introduces unjustifiable skew. ~51% NaN. |
 | `powerPerf` | **Confirmed data leakage.** Verified manually that `powerPerf = cpuMark / TDP` exactly (e.g. row 0: 108822/280 = 388.65, matching the stored value). Retaining this column would let the model reconstruct the target almost directly. |
 | `cpuValue`, `threadValue` | Likely derived score/price ratios, dropped for the same reasoning as `price`. |
 | `socket` | High-cardinality categorical name field with substantial missingness; low expected predictive value relative to its complexity cost. |
@@ -89,9 +89,9 @@ reproducible.
 
 | Model | MAE | RMSE | MAPE | R² | Training Time (s) |
 |---|---|---|---|---|---|
-| Linear Regression | 2,281.19 | 3,435.22 | 2.0053 (200%) | 0.8772 | 0.0020 |
-| **CatBoost** | **737.23** | **1,568.58** | **0.2054 (20.5%)** | **0.9744** | 1.0528 |
-| Linear Regression + Log-transform | 3,542.41 | 19,545.81 | 0.3816 (38%) | -2.9761 | 0.0040 |
+| Linear Regression | 2,281.19 | 3,435.22 | 2.0053 (200%) | 0.8772 | 0.0022 |
+| **CatBoost** | **737.23** | **1,568.58** | **0.2054 (20.5%)** | **0.9744** | 1.1183 |
+| Linear Regression + Log-transform | 3,542.41 | 19,545.81 | 0.3816 (38%) | -2.9761 | 0.0036 |
 
 CatBoost outperforms Linear Regression across every metric:
 
@@ -235,3 +235,9 @@ to the fixed vocabulary of one-hot encoding.
 ## Tech Stack
 
 `pandas` · `numpy` · `scikit-learn` · `catboost` · `matplotlib`
+
+## Author
+**Payama (Muhammad Yusuf Erki)**
+*   Information Technology Undergraduate at Universitas Tarumanagara (UNTAR)
+*   [[LinkedIn]](https://www.linkedin.com/in/muhammad-yusuf-erki-78495b306/)
+*   [[Github]](https://github.com/Payama01)
