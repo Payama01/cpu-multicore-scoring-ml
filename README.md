@@ -18,7 +18,7 @@ validating findings across multiple independent methods.
 
 ```
 notebooks/
-  02_modeling.ipynb        # Preprocessing, training, evaluation, visualization, CV
+  multicore_score_prediction.ipynb        # Preprocessing, training, evaluation, visualization, CV
 datasets/
   raw/                     # Original CSV
   processed/               # Cleaned CSV used for modeling
@@ -31,10 +31,6 @@ images/
   feature_importance_catboost.png
   linear_feature_coefficients.png
 ```
-
-> Note: preprocessing and modeling currently live in a single notebook
-> (`02_modeling.ipynb`); the filename is retained from the original project
-> naming convention.
 
 ## Key Methodology Decisions
 
